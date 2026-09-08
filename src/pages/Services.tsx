@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ClosingCta, PageHero } from "@/components/ui-bits";
@@ -88,6 +89,13 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  to={`/services/${s.slug}`}
+                  className="mt-8 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-ink transition-colors hover:text-gold-deep"
+                >
+                  Explore
+                  <span>→</span>
+                </Link>
               </Reveal>
             </article>
           ))}

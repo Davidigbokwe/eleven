@@ -212,7 +212,7 @@ export default function Home() {
                   <h3 className="font-display mt-5 text-xl leading-snug text-ink">{s.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.short}</p>
                   <Link
-                    to="/services"
+                    to={`/services/${s.slug}`}
                     className="mt-6 inline-flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-ink transition-colors group-hover:text-gold-deep"
                   >
                     Explore

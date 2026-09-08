@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
+import ServiceDetail from "@/pages/ServiceDetail";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/NotFound";
 
@@ -34,6 +35,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
