@@ -8,12 +8,15 @@ export function waLink(message: string = DEFAULT_MESSAGE) {
 
 export const SITE_URL = "https://elvenbeautyhub.com";
 
+function normalizePathname(pathname: string): string {
+  let p = pathname || "";
+  if (p.length > 1) p = p.replace(/\/+$/, "");
+  if (p && !p.startsWith("/")) p = `/${p}`;
+  return p;
+}
+
 export function setCanonical(pathname: string) {
-  const canonical = pathname.startsWith("/")
-    ? pathname
-    : pathname === ""
-      ? ""
-      : `/${pathname}`;
+  const canonical = normalizePathname(pathname);
   const href = `${SITE_URL}${canonical || ""}`;
   let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!link) {
@@ -51,17 +54,20 @@ export function setPageMeta({
     el.setAttribute("content", content);
   };
 
+  const normalizedPath = normalizePathname(pathname);
+  const fullUrl = `${SITE_URL}${normalizedPath || ""}`;
+
   setMetaTag("description", "name", "description", description);
   setMetaTag("og:title", "property", "og:title", title);
   setMetaTag("og:description", "property", "og:description", description);
   setMetaTag("og:type", "property", "og:type", type);
-  setMetaTag("og:url", "property", "og:url", `${SITE_URL}${pathname === "/" ? "" : pathname}`);
+  setMetaTag("og:url", "property", "og:url", fullUrl);
   setMetaTag("og:image", "property", "og:image", image);
   setMetaTag("twitter:title", "name", "twitter:title", title);
   setMetaTag("twitter:description", "name", "twitter:description", description);
   setMetaTag("twitter:image", "name", "twitter:image", image);
 
-  setCanonical(pathname);
+  setCanonical(normalizedPath);
 }
 
 export const CONTACT = {

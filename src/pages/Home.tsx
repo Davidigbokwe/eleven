@@ -110,7 +110,7 @@ export default function Home() {
 
           <Reveal delay={420}>
             <p className="mt-12 text-[0.68rem] uppercase tracking-[0.34em] text-cream/40">
-              Look Good • Feel Good • Be You
+              BEAUTY • CONFIDENCE • YOU
             </p>
           </Reveal>
         </div>

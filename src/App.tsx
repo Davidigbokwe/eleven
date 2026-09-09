@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFab from "@/components/WhatsAppFab";
@@ -26,10 +26,21 @@ function ScrollToTop() {
   return null;
 }
 
+function TrailingSlashRedirect() {
+  const { pathname, search, hash } = useLocation();
+  if (pathname.length > 1 && pathname.endsWith("/")) {
+    return (
+      <Navigate to={`${pathname.replace(/\/+$/, "")}${search}${hash}`} replace />
+    );
+  }
+  return null;
+}
+
 export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ScrollToTop />
+      <TrailingSlashRedirect />
       <SiteHeader />
       <main>
         <Routes>
