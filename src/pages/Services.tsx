@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ClosingCta, PageHero } from "@/components/ui-bits";
-import { SERVICES, setCanonical } from "@/lib/site";
+import { SERVICES, setPageMeta } from "@/lib/site";
 import salon from "@/assets/salon.jpg";
 import gWig from "@/assets/g-wig.jpg";
 import gBraids from "@/assets/g-braids.jpg";
@@ -26,15 +26,12 @@ const IMAGES: Record<string, string> = {
 
 export default function Services() {
   useEffect(() => {
-    document.title = "Our Services | Elven Beauty Hub, Sabo Yaba Lagos";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute(
-        "content",
+    setPageMeta({
+      title: "Our Services | Elven Beauty Hub, Sabo Yaba Lagos",
+      description:
         "Hair styling & wig installation, braiding, barbering, kids hair, nails, lashes & brows, hair treatments and beauty products at Elven Beauty Hub, Lagos.",
-      );
-    }
-    setCanonical("/services");
+      pathname: "/services",
+    });
   }, []);
 
   return (

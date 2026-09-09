@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ClosingCta, SectionHeading, WaButton } from "@/components/ui-bits";
-import { SERVICES, CONTACT, setCanonical } from "@/lib/site";
+import { SERVICES, CONTACT, setPageMeta } from "@/lib/site";
 import hero from "@/assets/hero.jpg";
 import salon from "@/assets/salon.jpg";
 import gBraids from "@/assets/g-braids.jpg";
@@ -57,24 +57,14 @@ const TESTIMONIALS = [
   },
 ];
 
-function setMeta(title: string, description: string) {
-  document.title = title;
-  let meta = document.querySelector('meta[name="description"]');
-  if (!meta) {
-    meta = document.createElement("meta");
-    meta.setAttribute("name", "description");
-    document.head.appendChild(meta);
-  }
-  meta.setAttribute("content", description);
-}
-
 export default function Home() {
   useEffect(() => {
-    setMeta(
-      "Elven Beauty Hub | Unisex Beauty Salon in Sabo Yaba, Lagos",
-      "Premium unisex salon in Sabo Yaba, Lagos. Hair styling, wig installs, braids, barbering, nails, lashes & brows. Opening September 13 — book on WhatsApp.",
-    );
-    setCanonical("/");
+    setPageMeta({
+      title: "Elven Beauty Hub | Unisex Beauty Salon in Sabo Yaba, Lagos",
+      description:
+        "Premium unisex salon in Sabo Yaba, Lagos. Hair styling, wig installs, braids, barbering, nails, lashes & brows. Opening September 13 — book on WhatsApp.",
+      pathname: "/",
+    });
   }, []);
 
   return (

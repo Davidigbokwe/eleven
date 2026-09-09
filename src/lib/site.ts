@@ -24,6 +24,46 @@ export function setCanonical(pathname: string) {
   link.setAttribute("href", href);
 }
 
+type SetMetaOptions = {
+  title: string;
+  description: string;
+  pathname: string;
+  image?: string;
+  type?: "website" | "article";
+};
+
+export function setPageMeta({
+  title,
+  description,
+  pathname,
+  image = `${SITE_URL}/og-image.jpg`,
+  type = "website",
+}: SetMetaOptions) {
+  document.title = title;
+
+  const setMetaTag = (selector: string, attr: "name" | "property", value: string, content: string) => {
+    let el = document.querySelector<HTMLMetaElement>(`meta[${attr}="${selector}"]`);
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute(attr, selector);
+      document.head.appendChild(el);
+    }
+    el.setAttribute("content", content);
+  };
+
+  setMetaTag("description", "name", "description", description);
+  setMetaTag("og:title", "property", "og:title", title);
+  setMetaTag("og:description", "property", "og:description", description);
+  setMetaTag("og:type", "property", "og:type", type);
+  setMetaTag("og:url", "property", "og:url", `${SITE_URL}${pathname === "/" ? "" : pathname}`);
+  setMetaTag("og:image", "property", "og:image", image);
+  setMetaTag("twitter:title", "name", "twitter:title", title);
+  setMetaTag("twitter:description", "name", "twitter:description", description);
+  setMetaTag("twitter:image", "name", "twitter:image", image);
+
+  setCanonical(pathname);
+}
+
 export const CONTACT = {
   address: "Shop 27, Nipost Shopping Complex, Sabo Yaba, Lagos",
   phoneDisplay: "0803 175 9528",

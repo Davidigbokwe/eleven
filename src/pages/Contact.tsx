@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ClosingCta, PageHero, WaButton } from "@/components/ui-bits";
-import { CONTACT, SERVICES, waLink, setCanonical } from "@/lib/site";
+import { CONTACT, SERVICES, waLink, setPageMeta } from "@/lib/site";
 import salon from "@/assets/salon.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -34,15 +34,12 @@ const HIGHLIGHTS = [
 
 export default function Contact() {
   useEffect(() => {
-    document.title = "Contact & Book | Elven Beauty Hub, Sabo Yaba Lagos";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute(
-        "content",
+    setPageMeta({
+      title: "Contact & Book | Elven Beauty Hub, Sabo Yaba Lagos",
+      description:
         "Visit Elven Beauty Hub at Nipost Shopping Complex, Sabo Yaba. Book appointments on WhatsApp 0803 175 9528 or use our quick contact form.",
-      );
-    }
-    setCanonical("/contact");
+      pathname: "/contact",
+    });
   }, []);
 
   const [form, setForm] = useState({

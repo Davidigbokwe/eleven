@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
 import { ClosingCta, WaButton } from "@/components/ui-bits";
-import { SERVICES, type Service, setCanonical } from "@/lib/site";
+import { SERVICES, type Service, setPageMeta, SITE_URL } from "@/lib/site";
 import gWig from "@/assets/g-wig.jpg";
 import gBraids from "@/assets/g-braids.jpg";
 import gBarber from "@/assets/g-barber.jpg";
@@ -31,12 +31,14 @@ export default function ServiceDetail() {
 
   useEffect(() => {
     if (!service) return;
-    document.title = `${service.title} | Elven Beauty Hub, Sabo Yaba Lagos`;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute("content", service.description);
-    }
-    setCanonical(`/services/${service.slug}`);
+    setPageMeta({
+      title: `${service.title} | Elven Beauty Hub, Sabo Yaba Lagos`,
+      description: service.description,
+      pathname: `/services/${service.slug}`,
+      image: IMAGES[service.slug]?.startsWith("http")
+        ? IMAGES[service.slug]
+        : `${SITE_URL}${IMAGES[service.slug] || "/og-image.jpg"}`,
+    });
   }, [service]);
 
   if (!service) {
