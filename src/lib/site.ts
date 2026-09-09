@@ -12,6 +12,8 @@ export const CONTACT = {
   phoneHref: "tel:+2348031759528",
   instagram: "https://instagram.com/elvenbeautyhub",
   instagramHandle: "@elvenbeautyhub",
+  tiktok: "https://tiktok.com/@elvenbeautyhub",
+  tiktokHandle: "@elvenbeautyhub",
 };
 
 export type Service = {
