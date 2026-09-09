@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
 import { ClosingCta, WaButton } from "@/components/ui-bits";
-import { SERVICES, type Service } from "@/lib/site";
+import { SERVICES, type Service, setCanonical } from "@/lib/site";
 import gWig from "@/assets/g-wig.jpg";
 import gBraids from "@/assets/g-braids.jpg";
 import gBarber from "@/assets/g-barber.jpg";
@@ -36,6 +36,7 @@ export default function ServiceDetail() {
     if (meta) {
       meta.setAttribute("content", service.description);
     }
+    setCanonical(`/services/${service.slug}`);
   }, [service]);
 
   if (!service) {

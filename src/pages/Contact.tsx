@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ClosingCta, PageHero, WaButton } from "@/components/ui-bits";
-import { CONTACT, SERVICES, waLink } from "@/lib/site";
+import { CONTACT, SERVICES, waLink, setCanonical } from "@/lib/site";
 import salon from "@/assets/salon.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -42,6 +42,7 @@ export default function Contact() {
         "Visit Elven Beauty Hub at Nipost Shopping Complex, Sabo Yaba. Book appointments on WhatsApp 0803 175 9528 or use our quick contact form.",
       );
     }
+    setCanonical("/contact");
   }, []);
 
   const [form, setForm] = useState({

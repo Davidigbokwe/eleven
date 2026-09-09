@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ClosingCta, SectionHeading, WaButton } from "@/components/ui-bits";
-import { SERVICES, CONTACT } from "@/lib/site";
+import { SERVICES, CONTACT, setCanonical } from "@/lib/site";
 import hero from "@/assets/hero.jpg";
 import salon from "@/assets/salon.jpg";
 import gBraids from "@/assets/g-braids.jpg";
@@ -74,6 +74,7 @@ export default function Home() {
       "Elven Beauty Hub | Unisex Beauty Salon in Sabo Yaba, Lagos",
       "Premium unisex salon in Sabo Yaba, Lagos. Hair styling, wig installs, braids, barbering, nails, lashes & brows. Opening September 13 — book on WhatsApp.",
     );
+    setCanonical("/");
   }, []);
 
   return (

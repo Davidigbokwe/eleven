@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Reveal } from "@/components/Reveal";
 import { ClosingCta, PageHero } from "@/components/ui-bits";
-import { SERVICES } from "@/lib/site";
+import { SERVICES, setCanonical } from "@/lib/site";
 import salon from "@/assets/salon.jpg";
 import gWig from "@/assets/g-wig.jpg";
 import gBraids from "@/assets/g-braids.jpg";
@@ -34,6 +34,7 @@ export default function Services() {
         "Hair styling & wig installation, braiding, barbering, kids hair, nails, lashes & brows, hair treatments and beauty products at Elven Beauty Hub, Lagos.",
       );
     }
+    setCanonical("/services");
   }, []);
 
   return (

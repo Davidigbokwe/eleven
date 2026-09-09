@@ -6,6 +6,24 @@ export function waLink(message: string = DEFAULT_MESSAGE) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
+export const SITE_URL = "https://elvenbeautyhub.com";
+
+export function setCanonical(pathname: string) {
+  const canonical = pathname.startsWith("/")
+    ? pathname
+    : pathname === ""
+      ? ""
+      : `/${pathname}`;
+  const href = `${SITE_URL}${canonical || ""}`;
+  let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  if (!link) {
+    link = document.createElement("link");
+    link.setAttribute("rel", "canonical");
+    document.head.appendChild(link);
+  }
+  link.setAttribute("href", href);
+}
+
 export const CONTACT = {
   address: "Shop 27, Nipost Shopping Complex, Sabo Yaba, Lagos",
   phoneDisplay: "0803 175 9528",
