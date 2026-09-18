@@ -67,6 +67,7 @@ export default function SiteFooter() {
                 { to: "/", label: "Home" },
                 { to: "/services", label: "Services" },
                 { to: "/contact", label: "Contact" },
+                { to: "/gallery", label: "Gallery" },
               ].map((l) => (
                 <li key={l.to}>
                   <Link to={l.to} className="transition-colors hover:text-gold">

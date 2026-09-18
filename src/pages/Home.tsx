@@ -270,7 +270,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
-              eyebrow="On the gram"
+              eyebrow={<span className="flex items-center gap-1">instagram</span>}
               title={CONTACT.instagramHandle}
               copy="Fresh transformations, behind-the-chair moments and opening-week news."
             />

@@ -7,6 +7,7 @@ const NAV = [
   { to: "/", label: "Home", exact: true },
   { to: "/services", label: "Services" },
   { to: "/contact", label: "Contact" },
+  { to: "/gallery", label: "Gallery" },
 ];
 
 export default function SiteHeader() {

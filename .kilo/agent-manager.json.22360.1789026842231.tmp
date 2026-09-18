@@ -1,0 +1,29 @@
+{
+  "worktrees": {
+    "wt-1788960544435-1": {
+      "branch": "paper-barnacle",
+      "path": "c:\\users\\hp\\desktop\\elven-beauty-launch-main\\.kilo\\worktrees\\paper-barnacle",
+      "parentBranch": "main",
+      "createdAt": "2026-09-09T13:29:04.435Z",
+      "remote": "origin",
+      "branchOwned": true,
+      "autoNameSessionId": "ses_f79a45b62ffetUKkC7Ergx51wb",
+      "autoNamePromptCount": 0
+    }
+  },
+  "sessions": {
+    "ses_f79a45b62ffetUKkC7Ergx51wb": {
+      "worktreeId": "wt-1788960544435-1",
+      "createdAt": "2026-09-09T13:29:08.103Z"
+    }
+  },
+  "tabOrder": {
+    "local": [
+      "pending:df079a9e-ff3d-4042-88c4-eae336ae4dff"
+    ]
+  },
+  "worktreeOrder": [
+    "wt-1788960544435-1"
+  ],
+  "sessionsCollapsed": true
+}

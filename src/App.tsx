@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import ServiceDetail from "@/pages/ServiceDetail";
 import Contact from "@/pages/Contact";
+import Gallery from "@/pages/Gallery";
 import NotFound from "@/pages/NotFound";
 
 function ScrollToTop() {
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
